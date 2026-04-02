@@ -24,4 +24,27 @@ http://<ALB_DNS_NAME>/insert
 http://<ALB_DNS_NAME>/data
 http://<ALB_DNS_NAME>/
 kubectl get ingress demo-ingress -n demo-app
+Access DB:
+kubectl exec -it postgres-0 -n demo-app -- psql -U admin
+postgres=# \c postgres
+postgres=# SELECT * FROM demo;
+
+output:
+id |        message        
+----+-----------------------
+  1 | Hello from Kubernetes
+  2 | Hello from Kubernetes
+  3 | Hello from Kubernetes
+  4 | Hello from Kubernetes
+  5 | Hello from Kubernetes
+  6 | Hello from Kubernetes
+  7 | Hello from Kubernetes
+  8 | Hello from Kubernetes
+  9 | Hello from Kubernetes
+ 10 | Hello from Kubernetes
+ 11 | Hello from Kubernetes
+ 12 | Hello from Kubernetes
+ 13 | Hello from Kubernetes
+ 14 | Hello from Kubernetes
+(14 rows)
 
